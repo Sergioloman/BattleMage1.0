@@ -45,6 +45,10 @@ var EnemyLvlFour = {
 var Enemies = [EnemyLvlOne, EnemyLvlTwo, EnemyLvlThree, EnemyLvlFour];
 console.log(Enemies);
 
+var randomEnemy;
+console.log(randomEnemy);
+
+
 //opponent randomizer
 function RandomOpponent(){
     var randomIndex = Math.floor(Math.random() * Enemies.length);
