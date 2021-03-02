@@ -1,9 +1,9 @@
 //Welcome to the game
-var playerName = window.prompt("What is your user name?");
+var playerId = window.prompt("What is your user name?");
 
 //user stats
 let playerHero = {
-    name : playerName,
+    name : playerId,
     health : 100,
     attack : 25,
     speed: 4,
@@ -49,29 +49,44 @@ console.log(Enemies);
 function RandomOpponent(){
     var randomIndex = Math.floor(Math.random() * Enemies.length);
     var randomEnemy = Enemies[randomIndex];
+    console.log(randomEnemy.name);
+    alert(randomEnemy.name + 'has appeared.' )
+
     return randomEnemy;
-    
 };
-console.log(RandomOpponent())
+console.log(RandomOpponent());
+//how can i make it the same opponent?
+var randomEnemy = RandomOpponent()
 
 
 
-
-function fight(){
+function fight(){    
+    while(playerHero.health > 0 && randomEnemy.health> 0) {
     
-    var promptfight = window.prompt(RandomOpponent + ' has entered the battlefield, do u fight?');
-    if (promptfight){
-        window.alert (playerName + ' you are a worthy warrior');
+        promptAttack = confirm(randomEnemy.name + ' has challanged you. Do you wish to fight?');
+        if (promptAttack=== true){
+            window.alert (playerId + ' , you are a worthy warrior');
 
-    }else{ 
-        window.alert('see you later!');
+            randomEnemy.health = randomEnemy.health - (playerHero.attack);
+            playerHero.health = playerHero.health - (randomEnemy.attack);
+        
+            
+            window.alert(randomEnemy.name + ' has ' + randomEnemy.health);
+            console.log(randomEnemy.name + ' has ' + randomEnemy.health);
+            window.alert("you have " + playerHero.health +" points of health left");
+            console.log("you have " + playerHero.health +" points of health left");
+        
+        }else{ 
+            window.alert('You were defeated long before battle');
+            playerHero.level - Math.floor(randomEnemy.level/3);
+            window.alert('your cowardice costed you ' + Math.floor(randomEnemy.level/3) +' Levels. You are now at Level ' + playerHero.level);
+
+            break;
+        };
     };
 };
-
 fight();
 
-
-// function fight(){
     
 //     Enemies.health[i]  = Enemies.health[i] - playerHero.attack;
 //     console.log( Enemies.name[i] + " still has " + Enemies.health[i] + " life. ");
