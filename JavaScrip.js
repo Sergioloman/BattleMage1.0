@@ -45,31 +45,31 @@ var EnemyLvlFour = {
 var Enemies = [EnemyLvlOne, EnemyLvlTwo, EnemyLvlThree, EnemyLvlFour];
 console.log(Enemies);
 
-var randomEnemy;
-console.log(randomEnemy);
-
-
-//opponent randomizer
-function RandomOpponent(){
-    var randomIndex = Math.floor(Math.random() * Enemies.length);
-    var randomEnemy = Enemies[randomIndex];
-    console.log(randomEnemy.name);
-    alert(randomEnemy.name + 'has appeared.' )
-
-    return randomEnemy;
-};
-console.log(RandomOpponent());
-//how can i make it the same opponent?
-var randomEnemy = RandomOpponent()
-
-
 
 function fight(){    
+
+    //random enemy
+    function RandomOpponent(){
+        var randomIndex = Math.floor(Math.random() * Enemies.length);
+        var randomEnemy = Enemies[randomIndex];
+        console.log(randomEnemy.name);
+        alert(randomEnemy.name + 'has appeared.' )
+
+        return randomEnemy;
+    };
+    console.log(RandomOpponent());
+   
+    
+    var randomEnemy = RandomOpponent()
+    console.log(randomEnemy.name);
+    
+    
+
     while(playerHero.health > 0 && randomEnemy.health> 0) {
     
         promptAttack = confirm(randomEnemy.name + ' has challanged you. Do you wish to fight?');
         if (promptAttack=== true){
-            window.alert (playerId + ' , you are a worthy warrior');
+            window.alert (playerId + ' and' + randomEnemy.name + ' exchange blows');
 
             randomEnemy.health = randomEnemy.health - (playerHero.attack);
             playerHero.health = playerHero.health - (randomEnemy.attack);
