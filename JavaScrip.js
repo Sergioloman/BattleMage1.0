@@ -41,8 +41,6 @@ var EnemyLvlFour = {
     level: 4,
 };
 
-
-//enemy array
 var Enemies = [EnemyLvlOne, EnemyLvlTwo, EnemyLvlThree, EnemyLvlFour];
 console.log(Enemies);
 
