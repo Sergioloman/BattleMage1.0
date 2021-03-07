@@ -59,7 +59,6 @@ function RandomOpponent() {
     return randomEnemy;
 };
 
-
 function fight() {
 
     var randomEnemy = RandomOpponent()
@@ -95,9 +94,6 @@ function fight() {
     };
 
 };
-
-
-
 
 //     Enemies.health[i]  = Enemies.health[i] - playerHero.attack;
 //     console.log( Enemies.name[i] + " still has " + Enemies.health[i] + " life. ");
